@@ -1,3 +1,47 @@
+[build-system]
+requires = [
+    "build",
+    "setuptools >= 67.7.2",
+	"setuptools_scm >= 7.1",
+	"wheel >= 0.40.0"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = ""
+authors = [
+    {name = "", email = ""},
+]
+classifiers = [
+    "Framework :: Django",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "django",
+]
+description = ""
+dynamic = ["version"]
+keywords = ["django", ]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = [
+    "bandit",
+    "black",
+    "build",
+    "mypy",
+    "mypy-extensions",
+    "pylint",
+    "pytest",
+    "pytest-cov",
+    "pytest-django",
+    "types-python-dateutil",
+    "typing_extensions",
+]
+
+
 [tool.bandit]
 exclude_dirs = ["venv", "tests"]
 
@@ -13,7 +57,7 @@ show_missing = true
 [tool.coverage.run]
 branch = true
 source = ["tests"]
-omit = ["*_test.py", "*/tests/*", "setup.py"]
+omit = ["*_test.py", "*/tests/*", "*__version__.py", "setup.py"]
 
 
 [tool.flake8]
@@ -49,3 +93,7 @@ testpaths = ["tests"]
 filterwarnings = [
     "ignore::UserWarning",
 ]
+
+
+[tool.setuptools_scm]
+write_to = "src/__version__.py"
