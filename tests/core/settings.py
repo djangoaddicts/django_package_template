@@ -47,6 +47,6 @@ TEMPLATES = [
     },
 ]
 
-BASE_TEMPLATE = "handyhelpers/handyhelpers_bs5/base.htm"
+BASE_TEMPLATE = ""
 
 USE_TZ = True
