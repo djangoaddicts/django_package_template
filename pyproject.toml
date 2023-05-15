@@ -8,9 +8,9 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = ""
+name = "djangoaddicts"
 authors = [
-    {name = "", email = ""},
+    {name = "David Slusser", email = "dbslusser@gmail.com"},
 ]
 classifiers = [
     "Framework :: Django",
