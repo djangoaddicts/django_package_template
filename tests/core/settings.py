@@ -16,7 +16,6 @@ SECRET_KEY = "test"
 INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "djangoaddicts.hostutils",
 ]
 
 ROOT_URLCONF = "tests.core.urls"
