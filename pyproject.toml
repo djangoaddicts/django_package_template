@@ -1,11 +1,11 @@
 [build-system]
+build-backend = "setuptools.build_meta"
 requires = [
     "build",
     "setuptools >= 67.7.2",
 	"setuptools_scm >= 7.1",
 	"wheel >= 0.40.0"
 ]
-build-backend = "setuptools.build_meta"
 
 [project]
 name = "djangoaddicts"
@@ -13,34 +13,58 @@ authors = [
     {name = "David Slusser", email = "dbslusser@gmail.com"},
 ]
 classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
     "Framework :: Django",
-    "Programming Language :: Python :: 3",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
     "django",
 ]
 description = ""
 dynamic = ["version"]
-keywords = ["django", ]
+keywords = ["django"]
 license = {file = "LICENSE"}
+name = ""
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 
 [project.optional-dependencies]
 dev = [
     "bandit",
     "black",
     "build",
+    "coveralls",
     "mypy",
     "mypy-extensions",
-    "pylint",
+    "ruff",
     "pytest",
     "pytest-cov",
     "pytest-django",
+    "safety",
+    "setuptools >= 67.7.2",
+	"setuptools_scm >= 7.1",
     "types-python-dateutil",
     "typing_extensions",
+    "wheel >= 0.40.0",
 ]
 
+docs = [
+    "sphinx",
+    "sphinx-rtd-theme",
+]
 
 [tool.bandit]
 exclude_dirs = ["venv", "tests"]
@@ -56,43 +80,35 @@ show_missing = true
 
 [tool.coverage.run]
 branch = true
-source = ["tests"]
 omit = ["*_test.py", "*/tests/*", "*__version__.py", "setup.py"]
+relative_files = true
+source = ["src"]
 
 
-[tool.flake8]
-ignore = "E203,E266,H106,H904,E133"
-max-line-length = 120
-max-complexity = 25
-hang-closing = true
-exclude = "tests"
+[tool.isort]
+profile = "black"
 
 
 [tool.mypy]
-ignore_missing_imports = true
 exclude = ['venv/*']
-
-
-[tool.pylint.format]
-max-line-length = "120"
-
-
-[tool.pylint.MASTER]
-ignore-paths = ["tests"]
-exit-zero = true
-
-
-[tool.pylint.'MESSAGES CONTROL']
-disable = "R0903,R0913,R0901,W0613,W0718,C0114,C0115,C0103,R1725,R0801,R1702,R0912"
+ignore_missing_imports = true
 
 
 # https://docs.pytest.org/en/6.2.x/customize.html#pyproject-toml
 [tool.pytest.ini_options]
-addopts = "-s -v -x --strict-markers -m 'not extra' --doctest-modules --cov=."
-testpaths = ["tests"]
+addopts = "-s -v -x --strict-markers -m 'not extra' --doctest-modules"
 filterwarnings = [
     "ignore::UserWarning",
 ]
+testpaths = ["tests"]
+
+
+[tool.ruff]
+line-length = 120
+
+
+[tool.setuptools_scm]
+write_to = "src/__version__.py"
 
 
 [tool.setuptools_scm]

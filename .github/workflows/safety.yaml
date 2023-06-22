@@ -1,12 +1,11 @@
 on: [push]
 
 jobs:
-  mypy:
+  safety:
     runs-on: ubuntu-latest
-    name: "mypy"
+    name: "safety"
     steps:
-      - uses: davidslusser/actions_python_mypy@v1.0.0
+      - uses: davidslusser/actions_python_safety@v1.0.0
         with:
-          src: "src"
-          options: "-v"
+          options: "--debug"
           pip_install_command: "pip install -e .[dev]"
