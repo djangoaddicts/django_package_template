@@ -7,6 +7,7 @@ requires = [
 	"wheel >= 0.40.0"
 ]
 
+
 [project]
 authors = [
     {name = "David Slusser", email = "dbslusser@gmail.com"},
@@ -40,18 +41,23 @@ name = "djangoaddicts"
 readme = "README.md"
 requires-python = ">=3.8"
 
+
 [project.optional-dependencies]
 dev = [
     "bandit",
     "black",
     "build",
     "coveralls",
+    "django-environ",
+    "isort",
+    "model-bakery",
     "mypy",
     "mypy-extensions",
     "ruff",
     "pytest",
     "pytest-cov",
     "pytest-django",
+    "radon",
     "safety",
     "setuptools >= 67.7.2",
 	"setuptools_scm >= 7.1",
@@ -63,7 +69,9 @@ dev = [
 docs = [
     "sphinx",
     "sphinx-rtd-theme",
+    "myst-parser",
 ]
+
 
 [tool.bandit]
 exclude_dirs = ["venv", "tests"]
@@ -79,7 +87,7 @@ show_missing = true
 
 [tool.coverage.run]
 branch = true
-omit = ["*_test.py", "*/tests/*", "*__version__.py", "setup.py"]
+omit = ["*_test.py", "*/tests/*", "*__version__.py", "setup.py", "src/djangoaddicts/manage.py", "src/djangoaddicts/core/*"]
 relative_files = true
 source = ["src"]
 
