@@ -6,7 +6,7 @@ jobs:
     name: "coveralls"
     steps:
     - name: actions_python_coveralls
-      uses: davidslusser/actions_python_coveralls@v1.0.0
+      uses: davidslusser/actions_python_coveralls@v1.0.1
       with:
         src: "src"
         options: ""
