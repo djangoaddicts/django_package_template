@@ -19,6 +19,6 @@ jobs:
     steps:
       - uses: davidslusser/actions_python_pypi@v1.0.2
         with:
-          build_command: "python setup.py sdist bdist_wheel"
+          build_command: "python -m build"
           pypi_username: ${{ secrets.PYPI_USERNAME }}
           pypi_password: ${{ secrets.PYPI_PASSWORD }}
